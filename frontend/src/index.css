@@ -1,0 +1,85 @@
+/* ============================================================
+   Google Fonts — Inter
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ============================================================
+   Global Reset & CSS Variables
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* --- Palette --- */
+  --navy:         #0f1e3c;
+  --navy-mid:     #162448;
+  --navy-light:   #1e3160;
+  --bg:           #f4f6fb;
+  --surface:      #ffffff;
+  --surface-2:    #f8fafd;
+  --border:       #e2e8f0;
+  --border-light: #edf2f7;
+
+  /* --- Text --- */
+  --text:         #0f172a;
+  --text-2:       #334155;
+  --muted:        #64748b;
+  --muted-light:  #94a3b8;
+
+  /* --- Accent --- */
+  --accent:       #2563eb;
+  --accent-dark:  #1d4ed8;
+  --accent-light: #eff6ff;
+  --accent-glow:  rgba(37,99,235,0.18);
+
+  /* --- Semantic --- */
+  --success:      #16a34a;
+  --success-bg:   #f0fdf4;
+  --success-bd:   #bbf7d0;
+  --warning:      #d97706;
+  --warning-bg:   #fffbeb;
+  --warning-bd:   #fde68a;
+  --danger:       #dc2626;
+  --danger-bg:    #fef2f2;
+  --danger-bd:    #fecaca;
+  --info:         #0ea5e9;
+  --info-bg:      #f0f9ff;
+  --info-bd:      #bae6fd;
+
+  /* --- Tokens --- */
+  --radius:       12px;
+  --radius-sm:    8px;
+  --radius-lg:    16px;
+  --shadow-sm:    0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow:       0 4px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-md:    0 8px 28px rgba(0,0,0,0.09), 0 2px 8px rgba(0,0,0,0.05);
+  --shadow-lg:    0 16px 48px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
+  --transition:   0.18s ease;
+  --transition-md:0.28s ease;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* ============================================================
+   Scrollbar (webkit)
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted-light); }
