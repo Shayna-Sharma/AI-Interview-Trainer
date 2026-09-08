@@ -1,127 +1,285 @@
 # AI Interview Trainer
 
-A full-stack AI interview practice application using React + Vite,
-Python + Flask, SQLite, and IBM watsonx.ai Granite.
+An AI-powered interview preparation application that helps candidates practice role-specific interviews, receive AI-based answer evaluation and feedback, and continue through a dynamic interview experience.
 
-## Project structure
+## 📌 Project Overview
+
+The **AI Interview Trainer** is designed to provide an interactive and personalized interview practice environment.
+
+Instead of depending only on static question banks, the application uses **IBM Granite** to generate relevant interview questions and evaluate candidate responses.
+
+The user selects a job role and difficulty level, answers the generated interview questions, and receives AI-generated evaluation, scoring, feedback, and the next relevant question.
+
+## 🎯 Problem Statement
+
+Candidates often prepare for technical interviews using generic question banks and have limited opportunities to receive immediate, personalized feedback on their answers.
+
+The AI Interview Trainer aims to address this problem by providing an AI-powered environment where candidates can:
+
+* Practice interviews based on their selected job role.
+* Select an appropriate difficulty level.
+* Receive dynamically generated interview questions.
+* Submit answers for AI-based evaluation.
+* Receive scores, strengths, weaknesses, and improvement feedback.
+* Continue the interview with relevant follow-up questions.
+* Review their overall interview performance.
+
+## ✨ Key Features
+
+### Role-Based Interview Questions
+
+Users can select their desired job role, allowing the system to generate questions relevant to that role.
+
+### Difficulty Selection
+
+The interview can be customized according to the selected difficulty level.
+
+### AI Question Generation
+
+IBM Granite is used to generate contextual and role-specific interview questions.
+
+### Answer Evaluation
+
+The system analyzes candidate responses and provides an AI-generated evaluation.
+
+### Scoring and Feedback
+
+Candidates receive scores along with strengths, weaknesses, and actionable feedback.
+
+### Adaptive Interview Flow
+
+The system can generate the next relevant question based on the ongoing interview context.
+
+### Performance Report
+
+The application provides an overall summary of the candidate's interview performance and areas for improvement.
+
+## 🧠 Role of IBM Granite
+
+IBM Granite provides the core AI capabilities used by the application.
+
+It is used for:
+
+* Interview question generation
+* Natural language understanding
+* Candidate answer evaluation
+* Scoring and feedback generation
+* Context-aware next-question generation
+
+## 🤖 Role of IBM Bob
+
+**IBM Bob** was used as an AI-assisted development platform during the development of the project.
+
+It supported the development process through:
+
+* Project and code generation
+* Backend and frontend development assistance
+* Debugging and error resolution
+* Code refinement
+* Feature implementation
+* Testing and improvement of the application
+
+IBM Bob is part of the **development workflow**, while IBM Granite provides the AI capabilities used by the application.
+
+## 🏗️ System Architecture
+
+The application follows a frontend-backend-AI architecture:
+
+```text
+User
+  ↓
+React.js Frontend
+  ↓
+REST API
+  ↓
+Flask / Python Backend
+  ↓
+IBM Granite
+  ↓
+AI Generated Question / Evaluation / Feedback
+  ↓
+React.js Frontend
+  ↓
+User
+```
+
+### Main Components
+
+**Frontend**
+
+* React.js
+* Vite
+* Interview interface
+* Answer input
+* Evaluation results
+* Performance report
+
+**Backend**
+
+* Python
+* Flask
+* REST APIs
+* Interview logic
+* Evaluation logic
+
+**AI Layer**
+
+* IBM Granite
+* Question generation
+* Answer evaluation
+* Scoring
+* Feedback
+* Next-question generation
+
+## 🛠️ Technology Stack
+
+| Technology   | Purpose                                      |
+| ------------ | -------------------------------------------- |
+| React.js     | Frontend development                         |
+| Vite         | Frontend development and build tooling       |
+| Python       | Backend and application logic                |
+| Flask        | Backend REST APIs                            |
+| IBM Granite  | AI question generation and answer evaluation |
+| REST API     | Frontend-backend communication               |
+| Git & GitHub | Version control and project repository       |
+| IBM Bob      | AI-assisted development                      |
+
+## 📁 Project Structure
 
 ```text
 AI-Interview-Trainer/
+│
 ├── backend/
-│   ├── app.py
-│   ├── config.py
-│   ├── database.py
-│   ├── requirements.txt
-│   ├── .env.example
 │   ├── routes/
-│   │   ├── __init__.py
-│   │   └── evaluate.py
-│   └── services/
-│       ├── __init__.py
-│       └── ibm_watson.py
+│   ├── services/
+│   ├── app.py
+│   ├── requirements.txt
+│   └── .env.example
 │
 ├── frontend/
-│   ├── index.html
+│   ├── src/
+│   ├── public/
 │   ├── package.json
-│   ├── package-lock.json
-│   ├── vite.config.js
-│   └── src/
-│       ├── App.jsx
-│       ├── main.jsx
-│       ├── index.css
-│       ├── components/
-│       │   ├── ErrorBanner.jsx
-│       │   ├── EvaluationResult.jsx
-│       │   ├── Header.jsx
-│       │   ├── LoadingSpinner.jsx
-│       │   ├── ScoreRing.jsx
-│       │   └── styles.css
-│       ├── pages/
-│       │   ├── InterviewPage.jsx
-│       │   └── HistoryPage.jsx
-│       └── services/
-│           └── api.js
+│   └── ...
 │
+├── docs/
+│   ├── problemstatement.pdf
+│   └── AI-Interview-Trainer-Presentation.pptx
+│
+├── README.md
 └── .gitignore
 ```
 
-Do not include `.env`, `venv`, `node_modules`, `dist`, `__pycache__`,
-or the SQLite database when submitting the source project.
+## ⚙️ Installation and Setup
 
-## Setup
-
-### Backend
+### 1. Clone the Repository
 
 ```bash
-cd backend
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-copy .env.example .env
+git clone https://github.com/Shayna-Sharma/AI-Interview-Trainer.git
+cd AI-Interview-Trainer
 ```
 
-Put the real IBM Cloud API key in `backend/.env`:
+### 2. Backend Setup
+
+Create and activate a Python virtual environment.
+
+On Windows:
+
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
+
+Install the required Python packages:
+
+```powershell
+pip install -r backend/requirements.txt
+```
+
+### 3. Configure IBM API Key
+
+Create a `.env` file inside the `backend` folder:
 
 ```text
-IBM_API_KEY=your_real_key_here
+backend/.env
 ```
 
-Then:
+Add your IBM API key:
 
-```bash
-python app.py
+```text
+IBM_API_KEY=your_api_key_here
 ```
 
-Backend: `http://localhost:5000`
+**Do not upload the actual `.env` file or API key to GitHub.**
 
-### Frontend
+The repository contains `.env.example` as a template.
 
-Open another terminal:
+### 4. Start the Backend
 
-```bash
+From the project root:
+
+```powershell
+python backend/app.py
+```
+
+The Flask backend should start locally.
+
+### 5. Start the Frontend
+
+Open another terminal and navigate to the frontend:
+
+```powershell
 cd frontend
 npm install
 npm run dev
 ```
 
-Frontend: `http://localhost:5173`
+Open the local URL provided by Vite in your browser.
 
-The Vite development proxy sends `/api` requests to Flask.
+## 🔐 Security
 
-## Main features
+Sensitive credentials are not included in the repository.
 
-- User enters any interview question and answer.
-- IBM Granite evaluates the supplied question/answer dynamically.
-- Score from 0–10.
-- Strengths, missing points, feedback and improved answer.
-- Evaluation history stored in SQLite.
-- IBM prompt-template endpoints for question generation and final report.
-
-## API
-
-`POST /api/evaluate`
-
-```json
-{
-  "question": "Explain REST API.",
-  "answer": "A REST API allows applications to communicate over HTTP using resources and HTTP methods.",
-  "role": "Backend Developer",
-  "difficulty": "medium"
-}
-```
-
-The backend sends the actual runtime question and answer to IBM as prompt variables.
-The response is returned to React and stored in SQLite.
-
-## IBM deployment
-
-Current deployment ID in `backend/config.py`:
+The following files and folders should remain excluded through `.gitignore`:
 
 ```text
-01a07830-0f21-77a6-bb18-45d8292ccff7
+backend/.env
+venv/
+node_modules/
 ```
 
-If the IBM prompt is redeployed to a new deployment, update this ID with the
-new deployment's API endpoint.
+Only the environment variable template is included:
 
-Never commit the real IBM API key.
+```text
+backend/.env.example
+```
+
+## 🚀 Future Scope
+
+Future versions of the AI Interview Trainer can include:
+
+* Voice-based interview interaction
+* Speech and communication analysis
+* More advanced personalized interviews
+* Dynamic difficulty adjustment
+* Detailed interview analytics
+* Additional job roles and interview categories
+* Improved performance tracking
+
+## 📄 Project Documents
+
+Project-related documents are available in the `docs` folder:
+
+* **Problem Statement:** `docs/problemstatement.pdf`
+* **Project Presentation:** `docs/AI-Interview-Trainer-Presentation.pptx`
+
+## 👩‍💻 Project
+
+**Project:** AI Interview Trainer
+
+**Technology:** React.js + Flask/Python + IBM Granite
+
+**Development Assistance:** IBM Bob
+
+**Repository:**
+https://github.com/Shayna-Sharma/AI-Interview-Trainer
